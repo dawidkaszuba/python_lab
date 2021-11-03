@@ -101,15 +101,15 @@ saveToFile(calculateAveragePerMonth(prepareData('/home/dawid/Documents/studia/II
 # %%
 #-------------------ZADANIE 4----------------------
 
-month = input("Podaj rozmiar miesiąc: ")
+month = input("Podaj miesiąc: ")
 year = input("Podaj rok: ")
 
 def findData(filePath):
     file = open(filePath)
     for row in csv.reader(file, delimiter=' '):
-        data = str(month) + " " + str(year)
-        if(data == row[0]):
-            print(row[2])
+        data = str(month.lower()) + " " + str(year)
+        if(data == row[0].lower()):
+            print("Średnia dla podanego okresu: " + row[2])
             
 findData('/home/dawid/Documents/studia/II rok/III semestr/python/workspace/result.csv');
 
