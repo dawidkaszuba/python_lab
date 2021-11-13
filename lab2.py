@@ -37,6 +37,7 @@ def seach_file_for_palindrome(filePath):
         else:
             saveWordToFile(newFile, lp, row,'false')
             lp = lp + 1
+    file.close()
 
 def checkIfPalindrome(row):
     return row == row[::-1]
@@ -62,6 +63,7 @@ def createGroupsForAverage(filePath):
     for row in csv.reader(file, delimiter=' '):
         yearWithMonth = f"{row[0]} {row[2]}"
         setOfYearsWithMonths.add(yearWithMonth);
+    file.close()
 
 def prepareData(filePath):
     file = open(filePath)
@@ -75,6 +77,7 @@ def prepareData(filePath):
             curentAgregateValue = float(dic.get(yearWithMonth)[0])
             curentNumberOfValues = int(dic.get(yearWithMonth)[1])
             dic.update({yearWithMonth : [curentAgregateValue + float(row[4]), curentNumberOfValues+1]})
+    file.close()
     return dic
  
 
@@ -110,13 +113,9 @@ def findData(filePath):
         data = str(month.lower()) + " " + str(year)
         if(data == row[0].lower()):
             print("Średnia dla podanego okresu: " + row[2])
+    file.close()
             
 findData('/home/dawid/Documents/studia/II rok/III semestr/python/workspace/result.csv');
-
-    
-
-
-
 
 
 # %%
