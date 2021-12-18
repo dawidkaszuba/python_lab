@@ -65,11 +65,24 @@ else:
     print("Niepoprawny format roku!")
     
 print(date_format)
-    
 
+# %%
+#----------------TESTY STATYSTYCZNE----------------------------
+import statistics
+import pandas
 
+lista = [2,1,4,5,3,4,6,3,6,73,4,7,6,8,3,5,64,5]
 
- 
+print(statistics.mean(lista))
+print(statistics.median(lista))
+print(statistics.quantiles(lista))
+
+data = pandas.DataFrame(lista)
+data.columns = ["1"]
+data.sort_values('1',inplace=True)
+print(data)
+
+data.hist()
         
 
     
